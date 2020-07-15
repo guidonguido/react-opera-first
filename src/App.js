@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo-opera-test.svg';
+import './css/App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="custom-main-content">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <p className="custom-welcome-message">
+          Benvenuto nel sito ufficiale di Opera A.P.S
         </p>
         <a
           className="App-link"
@@ -18,7 +18,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </div>
     </div>
   );
 }
