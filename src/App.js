@@ -3,6 +3,7 @@ import './css/App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
+import Footer from './components/Footer'
 import { Switch, Route } from 'react-router-dom';
 
 import Collapse from 'react-bootstrap/Collapse'
@@ -43,6 +44,8 @@ function App() {
           <MainContent openMobileMenu={openMobileMenu} />
         </Route>
       </Switch>
+
+      <Footer/>
     </div>
   );
 }

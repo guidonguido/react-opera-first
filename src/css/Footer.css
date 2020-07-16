@@ -1,0 +1,32 @@
+@media (min-width: 576px) {
+  .custom-footer {
+    background-color: #e41e32c4;
+    padding-bottom: 22px;
+  }
+}
+
+@media (max-width: 575px) {
+    .custom-footer {
+      padding-bottom: 40px;
+    }
+  }
+
+
+.custom-font-p {
+  font-family: Basis Grotesque, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.03rem;
+  flex: none;
+  -webkit-font-smoothing: antialiased;
+  color: #d1aeae;
+}
+
+.custom-font-title {
+  letter-spacing: 0.03rem;
+  flex: none;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(44, 44, 44);
+}
