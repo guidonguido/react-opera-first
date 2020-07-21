@@ -1,10 +1,8 @@
 import React from 'react';
 import '../css/Footer.css';
 import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 // get our fontawesome imports
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -14,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Footer = (props) => {
   return (
     <>
-      <Navbar variant='dark' expand='sm' fixed='bottom' className='custom-footer'>
+      <Navbar variant='dark' expand='sm' sticky='bottom' className='custom-footer'>
         <Nav className='mr-auto d-none d-sm-block' style={{ marginTop: '-10px' }}>
           <Row style={{ marginLeft: 'auto' }} className='custom-font-title'>
             INDIRIZZO
@@ -50,7 +48,7 @@ const Footer = (props) => {
         </Nav>
       </Navbar>
 
-      <Navbar bg='danger' variant='dark' expand='sm' fixed='bottom'>
+      <Navbar bg='danger' variant='dark' expand='sm' sticky='bottom'>
         <Nav className='mr-auto ml-auto' style={{ marginTop: '-10px', marginBottom: '-10px' }}>
           <Nav.Item className='custom-font-p'>Made for Opera APS by Guido Ricioppo © - 2020</Nav.Item>
         </Nav>
