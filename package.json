@@ -17,6 +17,7 @@
     "formik": "^2.1.5",
     "formik-material-ui": "^2.0.1",
     "material-ui-dropzone": "^3.3.0",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.2.2",
     "react-collapse": "^5.0.1",

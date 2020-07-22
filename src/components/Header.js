@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 
 const Header = (props) => {
   return (
-    <Navbar className='custom-sidebar' variant='dark' expand='sm' fixed='top'>
+    <Navbar className='custom-sidebar p-0' variant='dark' expand='sm' fixed='top'>
       <Navbar.Toggle
         aria-controls='sidebar'
         aria-expanded={props.openMobileMenu}

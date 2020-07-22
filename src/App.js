@@ -5,7 +5,11 @@ import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import IscrizionePage from './components/IscrizionePage';
+import SuccessAlert from './components/SuccessAlert';
+import ErrorAlert from './components/ErrorAlert';
+
 import { Switch, Route } from 'react-router-dom';
+import moment from 'moment';
 
 import Collapse from 'react-bootstrap/Collapse';
 import Col from 'react-bootstrap/Col';
@@ -57,13 +61,30 @@ function App() {
         </Col>
       </Collapse>
 
+      {submitSuccess && (
+        <SuccessAlert
+          show={submitSuccess}
+          nome={submitValues.nome}
+          cognome={submitValues.cognome}
+          inviaDocumento={submitValues.files.lenght === 0}
+          minorenne={moment().diff(moment(submitValues.dataNascita), 'years') < 18}
+        />
+      )}
+      {submitSuccess && (
+        <ErrorAlert
+          show={submitSuccess}
+          nome={submitValues.nome}
+          cognome={submitValues.cognome}
+        />
+      )}
+
       {submitSuccess ? <h1 className='below-nav'> GENTILE RICHIESTA DI ISCRIZIONE INVIATA CORRETTAMENTE </h1> : null}
       {submitError ? (
         <h1 className='below-nav'> LA RICHIESTA DI ISCRIZIONE NON è STATA INVIATA A CAUSA DI UN ERRORE</h1>
       ) : null}
       {loading ? (
         <SemipolarLoading
-          style={{ position: 'fixed', top: '50% ', left: '48%', zIndex:'100' }}
+          style={{ position: 'fixed', top: '50% ', left: '48%', zIndex: '100' }}
           size='large'
           color='#e41e32c4'
         />
@@ -86,7 +107,7 @@ function App() {
             {' '}
             <p>Pagina di Iscrizione al torneo in allestimento</p>
           </div>
-            <Footer position='fixed' />
+          <Footer position='fixed' />
         </Route>
 
         <Route>
@@ -94,8 +115,6 @@ function App() {
           <Footer position='fixed' />
         </Route>
       </Switch>
-
-      
     </div>
   );
 }

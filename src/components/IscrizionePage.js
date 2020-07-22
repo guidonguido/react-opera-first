@@ -134,7 +134,7 @@ const IscrizioneForm = (props) => {
               />
               <Form.Control.Feedback type='invalid'>{errors.nome}</Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md='6' controlId='validationNome'>
+            <Form.Group as={Col} md='6' controlId='validationCognome'>
               <Form.Label className='font-weight-bold'> Cognome* </Form.Label>
               <Form.Control
                 type='text'
@@ -246,7 +246,7 @@ const IscrizioneForm = (props) => {
               </Form.Control>
               <Form.Control.Feedback type='invalid'>{errors.via}</Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md='6' controlId='validationCivico'>
+            <Form.Group as={Col} md='6' controlId='validationIndirizzo'>
               <Form.Label className='font-weight-bold'> Indirizzo Residenza* </Form.Label>
               <Form.Control
                 type='text'
