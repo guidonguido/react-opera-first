@@ -13,6 +13,7 @@ import moment from 'moment';
 
 import Collapse from 'react-bootstrap/Collapse';
 import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 import { SemipolarLoading } from 'react-loadingg';
 
@@ -28,12 +29,22 @@ function App() {
   };
 
   const handleSubmitError = (err) => {
+    window.scrollTo(0,0);
     setSubmitError(err);
     setSubmitSuccess(false);
     setLoading(false);
   };
 
+  const handleErrorClose = _ => {
+    setSubmitError(false);
+  }
+
+  const handleSuccessClose = _ => {
+    setSubmitSuccess(false);
+  }
+
   const handleSubmitSuccess = (values) => {
+    window.scrollTo(0,0);
     if (values) {
       setSubmitSuccess(true);
       setSubmitError(false);
@@ -42,6 +53,7 @@ function App() {
 
       console.log(values);
     } else {
+      console.log('NO VALUES');
       setSubmitValues(null);
       setSubmitSuccess(false);
       setLoading(false);
@@ -61,27 +73,28 @@ function App() {
         </Col>
       </Collapse>
 
-      {submitSuccess && (
-        <SuccessAlert
-          show={submitSuccess}
-          nome={submitValues.nome}
-          cognome={submitValues.cognome}
-          inviaDocumento={submitValues.files.lenght === 0}
-          minorenne={moment().diff(moment(submitValues.dataNascita), 'years') < 18}
-        />
-      )}
-      {submitSuccess && (
-        <ErrorAlert
-          show={submitSuccess}
-          nome={submitValues.nome}
-          cognome={submitValues.cognome}
-        />
+      {submitValues && submitSuccess && (
+        <Row className='justify-content-md-center below-nav mr-0'>
+          <Col sm={7}>
+            <SuccessAlert
+              show={submitSuccess}
+              nome={submitValues.nome}
+              cognome={submitValues.cognome}
+              inviaDocumento={submitValues.files.length === 0}
+              minorenne={moment().diff(moment(submitValues.dataNascita), 'years') < 18}
+              hideAlert={handleSuccessClose}
+            />
+          </Col>
+        </Row>
       )}
 
-      {submitSuccess ? <h1 className='below-nav'> GENTILE RICHIESTA DI ISCRIZIONE INVIATA CORRETTAMENTE </h1> : null}
-      {submitError ? (
-        <h1 className='below-nav'> LA RICHIESTA DI ISCRIZIONE NON è STATA INVIATA A CAUSA DI UN ERRORE</h1>
-      ) : null}
+      {submitError && (
+        <Row className='justify-content-md-center below-nav mr-0'>
+          <Col sm={7}>
+            <ErrorAlert show={submitError} hideAlert={handleErrorClose} />
+          </Col>
+        </Row>
+      )}
       {loading ? (
         <SemipolarLoading
           style={{ position: 'fixed', top: '50% ', left: '48%', zIndex: '100' }}

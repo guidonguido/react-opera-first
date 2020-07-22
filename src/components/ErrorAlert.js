@@ -10,12 +10,12 @@ function ErrorAlert( props ) {
       <Alert show={props.show && show} variant='danger'>
         <Alert.Heading>Errore nell'invio della tua Iscrizione</Alert.Heading>
         <p>
-          Gentile {props.nome} {props.cognome}, non è stato possibile concludere l'iscrizione.
+          Gentile utente, non è stato possibile concludere l'iscrizione.
         </p>
         <p>Se il problema dovesse persistere, contatta il numero +39 3495513563 oppure recati in una sede OPERA.</p>
         <hr />
         <div className='d-flex justify-content-end'>
-          <Button onClick={() => setShow(false)} variant='outline-success'>
+          <Button onClick={() => {setShow(false); props.hideAlert()}} variant='outline-success'>
             Ho capito
           </Button>
         </div>

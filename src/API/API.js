@@ -48,6 +48,9 @@ async function addDocumentoIscrizioneAssociazione(files, cf) {
           case firebase.storage.TaskState.RUNNING: // or 'running'
             console.log('Upload is running');
             break;
+            default:
+              console.log('Default case. No info about the Upload');
+              break;
         }
       },
       function (err) {

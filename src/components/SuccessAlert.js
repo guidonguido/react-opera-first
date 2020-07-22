@@ -27,7 +27,7 @@ function SuccessAlert( props ) {
         ) : null}
         <hr />
         <div className='d-flex justify-content-end'>
-          <Button onClick={() => setShow(false)} variant='outline-success'>
+          <Button onClick={() => {setShow(false); props.hideAlert()}} variant='outline-success'>
             Ho capito
           </Button>
         </div>

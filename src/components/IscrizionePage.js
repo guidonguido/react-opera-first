@@ -68,7 +68,7 @@ const IscrizionePage = (props) => {
       </Row>
       <Row className=''>Inserisci i dati necessari</Row>
       <Row className='mb-5'>I campi contrassegnati da * sono obbligatori</Row>
-      <IscrizioneForm submit={handleSubmit} />
+      <IscrizioneForm submitForm={handleSubmit} />
     </Container>
   );
 };
@@ -98,7 +98,6 @@ const IscrizioneForm = (props) => {
   return (
     <Formik
       validationSchema={schema}
-      onSubmit={console.log}
       initialValues={{
         nome: '',
         cognome: '',
@@ -117,7 +116,7 @@ const IscrizioneForm = (props) => {
         captcha:''
       }}
       onSubmit={(values) => {
-        props.submit(values);
+        props.submitForm(values);
       }}>
       {({ handleSubmit, handleChange, handleBlur, setFieldValue, values, touched, isValid, errors }) => (
         <Form noValidate onSubmit={handleSubmit}>
