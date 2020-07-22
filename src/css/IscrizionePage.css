@@ -1,0 +1,19 @@
+.custom-logo-iscrizione {
+    height: 22vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .custom-logo-iscrizione {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  @keyframes custom-logo-iscrizione-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

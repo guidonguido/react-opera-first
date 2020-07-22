@@ -10,9 +10,18 @@ import { faAt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = (props) => {
+  let positionProps = {}
+
+  if(props.position==='sticky')
+    positionProps.sticky = 'bottom';
+
+  if(props.position==='fixed')
+    positionProps.fixed = 'bottom';
+  
+
   return (
     <>
-      <Navbar variant='dark' expand='sm' sticky='bottom' className='custom-footer'>
+      <Navbar variant='dark' expand='sm' {...positionProps} className='custom-footer'>
         <Nav className='mr-auto d-none d-sm-block' style={{ marginTop: '-10px' }}>
           <Row style={{ marginLeft: 'auto' }} className='custom-font-title'>
             INDIRIZZO
@@ -23,16 +32,16 @@ const Footer = (props) => {
         </Nav>
         <Nav className='mr-auto ml-auto d-sm-block' style={{ marginTop: '-20px' }}>
           <Row style={{ marginBottom: '-20px' }}>
-            <a href='https://m.facebook.com/profile.php?id=2430418867236248&ref=content_filter'>
+            <a href='https://m.facebook.com/profile.php?id=2430418867236248&ref=content_filter' target="_blank"  rel="noopener noreferrer">
               <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faFacebook} size='2x' />
             </a>
-            <a href='https://www.instagram.com/opera_aps/'>
+            <a href='https://www.instagram.com/opera_aps/' target="_blank"  rel="noopener noreferrer">
               <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faInstagram} size='2x' />
             </a>
-            <a href='https://wa.me/3495513563'>
+            <a href='https://wa.me/3495513563' target="_blank"  rel="noopener noreferrer">
               <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faWhatsapp} size='2x' />
             </a>
-            <a href='mailto:operaaps@outlook.it'>
+            <a href='mailto:operaaps@outlook.it' target="_blank"  rel="noopener noreferrer">
               <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faAt} size='2x' />
             </a>
           </Row>
@@ -48,7 +57,7 @@ const Footer = (props) => {
         </Nav>
       </Navbar>
 
-      <Navbar bg='danger' variant='dark' expand='sm' sticky='bottom'>
+      <Navbar  variant='dark' expand='sm' {...positionProps} className='custom-footer-bottom'>
         <Nav className='mr-auto ml-auto' style={{ marginTop: '-10px', marginBottom: '-10px' }}>
           <Nav.Item className='custom-font-p'>Made for Opera APS by Guido Ricioppo © - 2020</Nav.Item>
         </Nav>

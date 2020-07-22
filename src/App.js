@@ -10,8 +10,7 @@ import { Switch, Route } from 'react-router-dom';
 import Collapse from 'react-bootstrap/Collapse';
 import Col from 'react-bootstrap/Col';
 
-import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { SemipolarLoading } from 'react-loadingg';
 
 function App() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
@@ -37,7 +36,7 @@ function App() {
       setSubmitValues(values);
       setLoading(false);
 
-      console.log(values)
+      console.log(values);
     } else {
       setSubmitValues(null);
       setSubmitSuccess(false);
@@ -58,9 +57,17 @@ function App() {
         </Col>
       </Collapse>
 
-      {submitSuccess ? <h1 className='below-nav'> GENTILE  RICHIESTA DI ISCRIZIONE INVIATA CORRETTAMENTE </h1> : null}
-      {submitError ? <h1 className='below-nav'> LA RICHIESTA DI ISCRIZIONE NON è STATA INVIATA A CAUSA DI UN ERRORE</h1> : null}
-      {loading ? <FontAwesomeIcon className='below-nav' icon={faCircleNotch} spin size='5x' /> : null}
+      {submitSuccess ? <h1 className='below-nav'> GENTILE RICHIESTA DI ISCRIZIONE INVIATA CORRETTAMENTE </h1> : null}
+      {submitError ? (
+        <h1 className='below-nav'> LA RICHIESTA DI ISCRIZIONE NON è STATA INVIATA A CAUSA DI UN ERRORE</h1>
+      ) : null}
+      {loading ? (
+        <SemipolarLoading
+          style={{ position: 'fixed', top: '50% ', left: '48%', zIndex:'100' }}
+          size='large'
+          color='#e41e32c4'
+        />
+      ) : null}
 
       <Switch>
         <Route path='/iscrizioneAssociazione'>
@@ -71,6 +78,7 @@ function App() {
               loading={handleLoading}
             />{' '}
           </div>
+          <Footer position='sticky' />
         </Route>
 
         <Route path='/iscrizioneTorneo'>
@@ -78,14 +86,16 @@ function App() {
             {' '}
             <p>Pagina di Iscrizione al torneo in allestimento</p>
           </div>
+            <Footer position='fixed' />
         </Route>
 
         <Route>
           <MainContent openMobileMenu={openMobileMenu} />
+          <Footer position='fixed' />
         </Route>
       </Switch>
 
-      <Footer />
+      
     </div>
   );
 }

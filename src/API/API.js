@@ -12,10 +12,22 @@ async function addIscrizioneAssociazione(iscrizione) {
     cell: iscrizione.cell,
     email: iscrizione.email,
     files: files,
+    dataNascita: iscrizione.dataNascita,
+        cittaNascita: iscrizione.cittaNascita,
+        provinciaNascita: iscrizione.provinciaNascita,
+        cittaResidenza: iscrizione.cittaResidenza,
+        provinciaResidenza: iscrizione.provinciaResidenza,
+        viaResidenza: iscrizione.via,
+        indirizzoResidenza: iscrizione.indirizzo,
+        civicoResidenza: iscrizione.civico,
   }
 
-  console.log(iscrizioneAssociazione);
-  return firebase.firestore().collection('iscrizioniAssociazione').add(iscrizioneAssociazione);
+  //console.log(iscrizioneAssociazione);
+  //return firebase.firestore().collection('iscrizioniAssociazione').add(iscrizioneAssociazione);
+
+  const iscrizioniAssociazioneRef = firebase.database().ref('iscrizioniAssociazione');
+  const newIscrizioneRef = iscrizioniAssociazioneRef.push();
+  return newIscrizioneRef.set(iscrizioneAssociazione);
 }
 
 async function addDocumentoIscrizioneAssociazione(files, cf) {

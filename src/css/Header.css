@@ -1,0 +1,26 @@
+.custom-sidebar {
+  background-color: #ff3c1f;
+}
+
+.custom-logo {
+  height: 4vmin;
+  margin-top: 8px;
+  pointer-events: none;
+}
+
+.custom-logo-sm {
+  height: 4vmin;
+  pointer-events: none;
+}
+
+
+.custom-font {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 0.08rem;
+  flex: none;
+  -webkit-font-smoothing: antialiased;
+  
+}

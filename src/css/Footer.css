@@ -6,11 +6,14 @@
 }
 
 @media (max-width: 575px) {
-    .custom-footer {
-      padding-bottom: 40px;
-    }
+  .custom-footer {
+    padding-bottom: 40px;
   }
+}
 
+.custom-footer-bottom {
+  background-color: #ff3c1f;
+}
 
 .custom-font-p {
   font-family: Basis Grotesque, sans-serif;

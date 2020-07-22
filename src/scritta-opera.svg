@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="disegno.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg1180"
+   version="1.1"
+   viewBox="0 0 420.68603 120.09"
+   height="31.773813mm"
+   width="111.30651mm">
+  <defs
+     id="defs1174" />
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="224"
+     inkscape:window-height="1080"
+     inkscape:window-width="1610"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="339.65644"
+     inkscape:cx="355.77862"
+     inkscape:zoom="0.7"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata1177">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-187.19107,-122.89066)"
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       id="path520"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333"
+       d="m 262.40764,169.14586 c 0,-20.82988 -6.21146,-26.03895 -23.98219,-26.03895 -17.76936,0 -23.98208,5.20907 -23.98208,26.03895 0,20.82991 6.21272,26.03897 23.98208,26.03897 17.77073,0 23.98219,-5.20906 23.98219,-26.03897 m -65.21657,0 c 0,-25.51742 15.0095,-43.39741 41.23438,-43.39741 26.22491,0 41.23451,17.87999 41.23451,43.39741 0,25.51871 -15.0096,43.39743 -41.23451,43.39743 -26.22488,0 -41.23438,-17.87872 -41.23438,-43.39743" />
+    <path
+       id="path524"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333"
+       d="m 354.29139,169.14586 c 0,-20.82988 -6.21264,-26.03895 -23.11986,-26.03895 -16.90716,0 -23.11868,5.20907 -23.11868,26.03895 0,20.82991 6.21152,26.03897 23.11868,26.03897 16.90722,0 23.11986,-5.20906 23.11986,-26.03897 m 17.25229,0 c 0,25.51871 -9.83483,43.39743 -37.78422,43.39743 -12.07631,0 -20.53061,-4.68625 -25.70661,-10.41558 V 240.3186 H 290.7993 V 125.74845 h 17.25355 v 10.41558 c 5.176,-5.72933 13.6303,-10.41558 25.70661,-10.41558 27.94939,0 37.78422,17.87999 37.78422,43.39741" />
+    <path
+       id="path528"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333"
+       d="m 397.1929,160.46625 h 39.85394 c -0.68911,-12.67221 -6.38214,-17.35973 -20.01363,-17.35973 -12.93863,0 -18.80492,5.72933 -19.84031,17.35973 m 57.10871,17.35846 h -56.59035 c 1.55246,9.89532 7.07366,17.35974 25.87854,17.35974 6.90164,0 13.63007,0 24.84429,-3.12544 v 17.01245 c -13.457,3.47144 -18.28788,3.47144 -24.84429,3.47144 -38.99163,0 -43.82242,-27.94703 -43.82242,-43.39742 0,-25.51741 10.697,-43.39742 37.26583,-43.39742 26.57001,0 37.2684,16.14365 37.2684,41.66235 z" />
+    <path
+       id="path532"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333"
+       d="m 514.66334,143.10666 h -33.12536 v 69.43637 H 464.2844 V 125.7482 h 50.37894 z" />
+    <path
+       id="path536"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.33333"
+       d="m 570.93855,183.03352 c 0,-9.54805 -6.21141,-12.15193 -18.80614,-12.15193 -12.59473,0 -18.80494,2.60388 -18.80494,12.15193 0,9.54678 6.21021,12.15194 18.80494,12.15194 12.59473,0 18.80614,-2.60516 18.80614,-12.15194 m 27.60428,12.15194 v 17.35846 h -27.60428 v -8.6805 c -5.176,5.20779 -11.90454,8.6805 -23.98211,8.6805 -21.0477,0 -30.88251,-13.54102 -30.88251,-29.5104 0,-15.97065 9.83481,-29.5104 30.88251,-29.5104 12.07757,0 18.80611,3.47144 23.98211,8.67923 v -19.09609 h -44.85787 v -17.35845 h 62.1102 v 69.43765 z" />
+  </g>
+</svg>

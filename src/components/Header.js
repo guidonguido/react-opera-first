@@ -1,11 +1,13 @@
 import React from 'react';
+import '../css/Header.css'
+import logo from '../scritta-opera.svg';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 
 const Header = (props) => {
   return (
-    <Navbar bg='danger' variant='dark' expand='sm' fixed='top'>
+    <Navbar className='custom-sidebar' variant='dark' expand='sm' fixed='top'>
       <Navbar.Toggle
         aria-controls='sidebar'
         aria-expanded={props.openMobileMenu}
@@ -14,7 +16,7 @@ const Header = (props) => {
       />
       
 
-      <Nav className='mr-auto d-none d-sm-block'>
+      <Nav className='mr-auto d-none d-sm-block custom-font'>
         <Nav.Link as={NavLink} to='/iscrizioneAssociazione'>
           Iscriviti ad OPERA
         </Nav.Link>
@@ -22,17 +24,17 @@ const Header = (props) => {
 
       <Nav className='mr-auto ml-md-auto d-none d-sm-block'>
         <Nav.Link as={NavLink} exact to='/'>
-          HOME
+        <img src={logo} className='custom-logo' alt='logo' height='10px' width='120px' />
         </Nav.Link>
       </Nav>
 
       <Nav className='ml-md-auto d-sm-none'>
         <Nav.Link as={NavLink} exact to='/'>
-          HOME
+        <img src={logo} className='custom-logo-sm' alt='logo' height='10px' width='80px' />
         </Nav.Link>
       </Nav>
       
-      <Nav className='ml-md-auto d-none d-sm-block'>
+      <Nav className='ml-md-auto d-none d-sm-block custom-font'>
         <Nav.Link as={NavLink} to='/iscrizioneTorneo'>
           Iscriviti al TORNEO
         </Nav.Link>

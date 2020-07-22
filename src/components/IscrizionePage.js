@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import '../css/IscrizionePage.css'
 import API from '../API/API';
+import logo from '../logo-opera.svg';
 import { Redirect } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
@@ -9,11 +11,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { DropzoneArea } from 'material-ui-dropzone';
+import ReCAPTCHA from 'react-google-recaptcha';
+
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
-import { faHandshake } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const IscrizionePage = (props) => {
   const [submitted, setSubmitted] = useState(false);
@@ -60,12 +61,13 @@ const IscrizionePage = (props) => {
   return (
     <Container className='d-flex align-items-center flex-column '>
       <Row>
-        <FontAwesomeIcon icon={faHandshake} size='3x' />
+        <img src={logo} className='custom-logo-iscrizione' alt='logo'/>
       </Row>
       <Row>
         <h1>Iscriviti ad Opera</h1>
       </Row>
-      <Row className='mb-5'>Inserisci i dati necessari</Row>
+      <Row className=''>Inserisci i dati necessari</Row>
+      <Row className='mb-5'>I campi contrassegnati da * sono obbligatori</Row>
       <IscrizioneForm submit={handleSubmit} />
     </Container>
   );
@@ -83,15 +85,14 @@ const IscrizioneForm = (props) => {
       ),
     email: Yup.string().email('Inserisci una email valida'),
     cell: Yup.string().length(10, 'Inserisci un numero valido').required('Campo obbligatorio'),
-    dataNascita: Yup.date()
-      .required('Campo obbligatorio')
-      ,
+    dataNascita: Yup.date().required('Campo obbligatorio'),
     cittaNascita: Yup.string().required('Campo obbligatorio').max(20, 'Che nome lungo'),
     provinciaNascita: Yup.string().required('Campo obbligatorio').max(15, 'Che provincia lunga'),
     cittaResidenza: Yup.string().required('Campo obbligatorio').max(15, 'Nome troppo lungo'),
     provinciaResidenza: Yup.string().required('Campo obbligatorio').max(15, 'Che provincia lunga'),
     indirizzo: Yup.string().required('Campo obbligatorio').max(25, 'Indirizzo troppo lungo'),
-    civico: Yup.string().required()
+    civico: Yup.string().required('Campo obbligatorio'),
+    captcha: Yup.string().required('Campo obbligatorio')
   });
 
   return (
@@ -113,6 +114,7 @@ const IscrizioneForm = (props) => {
         via: 'Via',
         indirizzo: '',
         civico: '',
+        captcha:''
       }}
       onSubmit={(values) => {
         props.submit(values);
@@ -317,14 +319,13 @@ const IscrizioneForm = (props) => {
             />
           </Form.Row>
 
-          <p>{'nome: ' + values.nome}</p>
-          <p>{'nome: ' + values.cognome}</p>
-          <p>{'nome: ' + values.cf}</p>
-          <p>{'nome: ' + values.cell}</p>
-          <p>{'nome: ' + values.email}</p>
-          <p>{'nome: ' + values.files}</p>
+          <Form.Row>
+          <ReCAPTCHA className='ml-auto mr-auto mb-2 mt-5'  sitekey='6LeXQrQZAAAAAIaBCicMfbWEI6xaY4ebOhwVFU8R' value={values.captcha} onChange={(response) => { setFieldValue("captcha", response); }}  />
+          </Form.Row>
 
-          <Button type='submit'>Submit form</Button>
+          <Button type='submit' className='font-weight-bold' style={{ margin: '20px', width: '6rem', height: '3rem' }}>
+            Invia
+          </Button>
         </Form>
       )}
     </Formik>
