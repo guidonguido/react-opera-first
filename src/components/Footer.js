@@ -30,7 +30,7 @@ const Footer = (props) => {
             Da qualche parte a Cerzeto
           </Row>
         </Nav>
-        <Nav className='mr-auto ml-auto d-sm-block' style={{ marginTop: '-20px' }}>
+        <Nav className='mr-auto ml-auto d-sm-block mb-4 mb-sm-0' style={{ marginTop: '-20px' }}>
           <Row style={{ marginBottom: '-20px' }}>
             <a href='https://m.facebook.com/profile.php?id=2430418867236248&ref=content_filter' target="_blank"  rel="noopener noreferrer">
               <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faFacebook} size='2x' />
