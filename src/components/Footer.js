@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 
 // get our fontawesome imports
-import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faWhatsapp, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -59,7 +59,9 @@ const Footer = (props) => {
 
       <Navbar  variant='dark' expand='sm' {...positionProps} className='custom-footer-bottom'>
         <Nav className='mr-auto ml-auto' style={{ marginTop: '-10px', marginBottom: '-10px' }}>
-          <Nav.Item className='custom-font-p'>Made for Opera APS by Guido Ricioppo © - 2020</Nav.Item>
+          <Nav.Item className='custom-font-p'>Made for Opera APS by Guido Ricioppo © - 2020   -   <a href='https://github.com/guidonguido' target="_blank"  rel="noopener noreferrer">
+              Contact me <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faGithub}  />
+            </a></Nav.Item>
         </Nav>
       </Navbar>
     </>

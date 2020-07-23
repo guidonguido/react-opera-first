@@ -12,6 +12,7 @@ function ErrorAlert( props ) {
         <p>
           Gentile utente, non è stato possibile concludere l'iscrizione.
         </p>
+        { <p>Errore: {props.show}</p>       }
         <p>Se il problema dovesse persistere, contatta il numero +39 3495513563 oppure recati in una sede OPERA.</p>
         <hr />
         <div className='d-flex justify-content-end'>

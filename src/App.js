@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import IscrizionePage from './components/IscrizionePage';
+import IscrizioneTorneoPage from './components/IscrizioneTorneoPage';
 import SuccessAlert from './components/SuccessAlert';
 import ErrorAlert from './components/ErrorAlert';
 
@@ -20,7 +21,7 @@ import { SemipolarLoading } from 'react-loadingg';
 function App() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitValues, setSubmitValues] = useState(null);
 
@@ -29,22 +30,22 @@ function App() {
   };
 
   const handleSubmitError = (err) => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     setSubmitError(err);
     setSubmitSuccess(false);
     setLoading(false);
   };
 
-  const handleErrorClose = _ => {
+  const handleErrorClose = (_) => {
     setSubmitError(false);
-  }
+  };
 
-  const handleSuccessClose = _ => {
+  const handleSuccessClose = (_) => {
     setSubmitSuccess(false);
-  }
+  };
 
-  const handleSubmitSuccess = (values) => {
-    window.scrollTo(0,0);
+  const handleSubmitSuccess = (values, type) => {
+    window.scrollTo(0, 0);
     if (values) {
       setSubmitSuccess(true);
       setSubmitError(false);
@@ -80,8 +81,8 @@ function App() {
               show={submitSuccess}
               nome={submitValues.nome}
               cognome={submitValues.cognome}
-              inviaDocumento={submitValues.files.length === 0}
-              minorenne={moment().diff(moment(submitValues.dataNascita), 'years') < 18}
+              inviaDocumento={submitValues.files && submitValues.files.length === 0}
+              minorenne={submitValues.dataNascita && moment().diff(moment(submitValues.dataNascita), 'years') < 18}
               hideAlert={handleSuccessClose}
             />
           </Col>
@@ -117,10 +118,13 @@ function App() {
 
         <Route path='/iscrizioneTorneo'>
           <div className='below-nav'>
-            {' '}
-            <p>Pagina di Iscrizione al torneo in allestimento</p>
+            <IscrizioneTorneoPage
+              handleSubmitSuccess={handleSubmitSuccess}
+              handleSubmitError={handleSubmitError}
+              loading={handleLoading}
+            />
           </div>
-          <Footer position='fixed' />
+          <Footer position='sticky' />
         </Route>
 
         <Route>

@@ -1,11 +1,13 @@
 import firebase from '../firebase';
+import moment from 'moment';
 
 async function addIscrizioneAssociazione(iscrizione) {
   let files = null;
-  if(iscrizione.files) {
-    files = iscrizione.files.map(file => file.name )
+  if (iscrizione.files) {
+    files = iscrizione.files.map((file) => file.name);
   }
   const iscrizioneAssociazione = {
+    dataIscrizione: moment().format('YYYY-MM-DD HH:mm:ss'),
     nome: iscrizione.nome,
     cognome: iscrizione.cognome,
     cf: iscrizione.cf,
@@ -13,14 +15,14 @@ async function addIscrizioneAssociazione(iscrizione) {
     email: iscrizione.email,
     files: files,
     dataNascita: iscrizione.dataNascita,
-        cittaNascita: iscrizione.cittaNascita,
-        provinciaNascita: iscrizione.provinciaNascita,
-        cittaResidenza: iscrizione.cittaResidenza,
-        provinciaResidenza: iscrizione.provinciaResidenza,
-        viaResidenza: iscrizione.via,
-        indirizzoResidenza: iscrizione.indirizzo,
-        civicoResidenza: iscrizione.civico,
-  }
+    cittaNascita: iscrizione.cittaNascita,
+    provinciaNascita: iscrizione.provinciaNascita,
+    cittaResidenza: iscrizione.cittaResidenza,
+    provinciaResidenza: iscrizione.provinciaResidenza,
+    viaResidenza: iscrizione.via,
+    indirizzoResidenza: iscrizione.indirizzo,
+    civicoResidenza: iscrizione.civico,
+  };
 
   //console.log(iscrizioneAssociazione);
   //return firebase.firestore().collection('iscrizioniAssociazione').add(iscrizioneAssociazione);
@@ -48,9 +50,9 @@ async function addDocumentoIscrizioneAssociazione(files, cf) {
           case firebase.storage.TaskState.RUNNING: // or 'running'
             console.log('Upload is running');
             break;
-            default:
-              console.log('Default case. No info about the Upload');
-              break;
+          default:
+            console.log('Default case. No info about the Upload');
+            break;
         }
       },
       function (err) {
@@ -66,6 +68,51 @@ async function addDocumentoIscrizioneAssociazione(files, cf) {
   });
 }
 
-const API = { addIscrizioneAssociazione, addDocumentoIscrizioneAssociazione };
+async function utenteAssociazioExists(cf) {
+  const iscrizioniTorneoRef = firebase.database().ref('iscrizioniAssociazione');
+
+  const cfs = iscrizioniTorneoRef.orderByChild('cf').equalTo(cf);
+  cfs.once('value', function(snapshot) {
+    const exists = snapshot.exists();
+    return exists;
+  });
+}
+
+
+async function addIscrizioneTorneo(iscrizione) {
+
+  const iscrizioneTorneo = {
+    dataIscrizione: moment().format('YYYY-MM-DD HH:mm:ss'),
+    nome: iscrizione.nome,
+    cognome: iscrizione.cognome,
+    cf: iscrizione.cf,
+    cell: iscrizione.cell,
+    email: iscrizione.email,
+    giocatori: iscrizione.giocatori
+  };
+  
+
+  //console.log(iscrizioneAssociazione);
+  //return firebase.firestore().collection('iscrizioniAssociazione').add(iscrizioneAssociazione);
+
+  const iscrizioniTorneoRef = firebase.database().ref('iscrizioniTorneo');
+
+  const newIscrizioneRef = iscrizioniTorneoRef.push();
+  return newIscrizioneRef.set(iscrizioneTorneo);
+}
+
+async function utenteTorneoExists(cf) {
+  const iscrizioniTorneoRef = firebase.database().ref('iscrizioniTorneo');
+
+  const cfs = iscrizioniTorneoRef.orderByChild('cf').equalTo(cf);
+  cfs.once('value', function(snapshot) {
+    const exists = snapshot.exists();
+    console.log('API CALLED: exists: ', exists)
+    return exists;
+  });
+}
+
+const API = { addIscrizioneAssociazione, addDocumentoIscrizioneAssociazione, addIscrizioneTorneo, utenteAssociazioExists, utenteTorneoExists
+ };
 
 export default API;

@@ -29,7 +29,7 @@ const IscrizionePage = (props) => {
             .then(() => {
               setTimeout(() => {
                 console.log(values);
-                props.handleSubmitSuccess(values);
+                props.handleSubmitSuccess(values, 'associazione');
                 setSubmitted(true);
               }, 2000);
             })
@@ -41,7 +41,7 @@ const IscrizionePage = (props) => {
         } else {
           setTimeout(() => {
             console.log(values);
-            props.handleSubmitSuccess(values);
+            props.handleSubmitSuccess(values, 'associazione');
             setSubmitted(true);
           }, 2000);
         }
