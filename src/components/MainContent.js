@@ -19,7 +19,7 @@ const MainContent = (props) => {
           ✍🏼
         </span>{' '}
       </Link>
-      <Link to='/iscrizioneAssociazione' className='App-link mt-4'>
+      <Link to='/iscrizioneTorneo' className='App-link mt-4'>
         {' '}
         <span role='img' aria-label=''>
           ⚽
