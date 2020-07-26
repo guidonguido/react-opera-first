@@ -16,7 +16,7 @@ function SuccessAlert( props ) {
         {props.inviaDocumento ? (
           <p>
             Non avendo inviato un documento di identità, puoi consegnarne una copia in sede oppure inviarla tramite WhatsApp
-            al numero +39 3495513563
+            al numero +39 3462244752
           </p>
         ) : null}
         {props.minorenne ? (
