@@ -28,6 +28,16 @@ function App() {
   const [user, setUser] = useState(null);
   const [loginError, setLoginError] = useState(null);
 
+  const loginUser = (user) => {
+    setUser(user);
+  };
+
+  const logoutUser = (_) => {
+    console('Logging out user ', user || 'null');
+    setUser(null);
+    setLoginError(null);
+  };
+
   // ON FIRST MOUNT
   // Login Anonymous user and set it to the state
   // ON UNMOUNT
@@ -51,15 +61,6 @@ function App() {
       logoutUser();
     };
   }, []);
-
-  const loginUser = (user) => {
-    setUser(user);
-  };
-
-  const logoutUser = (_) => {
-    setUser(null);
-    setLoginError(null);
-  };
 
   const showSidebar = () => {
     setOpenMobileMenu((prevOMM) => !prevOMM);
