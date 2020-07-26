@@ -112,7 +112,30 @@ async function utenteTorneoExists(cf) {
   });
 }
 
-const API = { addIscrizioneAssociazione, addDocumentoIscrizioneAssociazione, addIscrizioneTorneo, utenteAssociazioExists, utenteTorneoExists
+async function loginAnonymousUser() {
+  return firebase.auth().signInAnonymously().then(() => {
+    console.log('User signed in anonymously');
+  })
+  .catch(error => {
+    if (error.code === 'auth/operation-not-allowed') {
+      console.log('Enable anonymous in your firebase console.');
+    }
+    console.log(error)
+    throw error.message;
+  });
+}
+
+function initializeAuthObserver(loginUserInApp) {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // User is signed in.
+      console.log(user);
+      loginUserInApp(user);
+    }
+  });
+}
+
+const API = { addIscrizioneAssociazione, addDocumentoIscrizioneAssociazione, addIscrizioneTorneo, utenteAssociazioExists, utenteTorneoExists, loginAnonymousUser, initializeAuthObserver
  };
 
 export default API;

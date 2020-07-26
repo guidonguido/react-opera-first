@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import API from './API/API';
 import './css/App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
@@ -24,6 +25,41 @@ function App() {
   const [submitError, setSubmitError] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitValues, setSubmitValues] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loginError, setLoginError] = useState(null);
+
+  // ON FIRST MOUNT
+  // Login Anonymous user and set it to the state
+  // ON UNMOUNT
+  // Logout Anonymous user and set the userState to null
+  useEffect(() => {
+
+    async function setupLogin(){
+      try{
+        API.initializeAuthObserver(loginUser); // Calls loginUser after an Auth state change
+        await API.loginAnonymousUser();
+      } catch (err) {
+        console.log(err)
+        window.scrollTo(0, 0);
+        setLoginError(err);
+      }
+    }
+    setupLogin();
+
+    return () => {
+      // TO-DO firebase.auth().signOut() 
+      logoutUser();
+    };
+  }, []);
+
+  const loginUser = (user) => {
+    setUser(user);
+  };
+
+  const logoutUser = (_) => {
+    setUser(null);
+    setLoginError(null);
+  };
 
   const showSidebar = () => {
     setOpenMobileMenu((prevOMM) => !prevOMM);
@@ -38,6 +74,7 @@ function App() {
 
   const handleErrorClose = (_) => {
     setSubmitError(false);
+    setLoginError(false);
   };
 
   const handleSuccessClose = (_) => {
@@ -49,6 +86,7 @@ function App() {
     if (values) {
       setSubmitSuccess(true);
       setSubmitError(false);
+      setLoginError(false);
       setSubmitValues(values);
       setLoading(false);
 
@@ -92,10 +130,29 @@ function App() {
       {submitError && (
         <Row className='justify-content-md-center below-nav mr-0'>
           <Col sm={7}>
-            <ErrorAlert show={submitError} hideAlert={handleErrorClose} />
+            <ErrorAlert
+              show={submitError}
+              heading="Errore nell'invio della tua Iscrizione"
+              description="Gentile utente, non è stato possibile concludere l'iscrizione."
+              hideAlert={handleErrorClose}
+            />
           </Col>
         </Row>
       )}
+
+      {loginError && (
+        <Row className='justify-content-md-center below-nav mr-0'>
+          <Col sm={7}>
+            <ErrorAlert
+              show={loginError}
+              heading='Errore nel server di autenticazione'
+              description='Gentile utente, al momento non è possibile iscriversi nelle varie sezioni.'
+              hideAlert={handleErrorClose}
+            />
+          </Col>
+        </Row>
+      )}
+
       {loading ? (
         <SemipolarLoading
           style={{ position: 'fixed', top: '50% ', left: '48%', zIndex: '100' }}

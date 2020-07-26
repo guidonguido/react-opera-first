@@ -8,9 +8,9 @@ function ErrorAlert( props ) {
   return (
     <>
       <Alert show={props.show && show} variant='danger'>
-        <Alert.Heading>Errore nell'invio della tua Iscrizione</Alert.Heading>
+        <Alert.Heading>{props.heading}</Alert.Heading>
         <p>
-          Gentile utente, non è stato possibile concludere l'iscrizione.
+          {props.description}
         </p>
         { <p>Errore: {props.show}</p>       }
         <p>Se il problema dovesse persistere, contatta il numero +39 3495513563 oppure recati in una sede OPERA.</p>
