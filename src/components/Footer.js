@@ -58,7 +58,7 @@ const Footer = (props) => {
       </Navbar>
 
       <Navbar  variant='dark' expand='sm' {...positionProps} className='custom-footer-bottom'>
-        <Nav className='mr-auto ml-auto' style={{ marginTop: '-10px', marginBottom: '-10px' }}>
+        <Nav className='mr-auto ml-auto' style={{ marginTop: '-10px', marginBottom: '-9px' }}>
           <Nav.Item className='custom-font-p'>Made for Opera APS by Guido Ricioppo © - 2020   -   <a href='https://github.com/guidonguido' target="_blank"  rel="noopener noreferrer">
               Contact me <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faGithub}  />
             </a></Nav.Item>

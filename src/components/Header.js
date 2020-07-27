@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Header.css'
+import '../css/Header.css';
 import logo from '../scritta-opera.svg';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
@@ -14,26 +14,27 @@ const Header = (props) => {
         aria-label='Toggle sidebar'
         onClick={props.showSidebar}
       />
-      
 
-      <Nav className='mr-auto d-none d-sm-block custom-font'>
-        <Nav.Link as={NavLink} to='/iscrizioneAssociazione'>
-          Iscriviti ad OPERA
-        </Nav.Link>
+      <Nav className='mr-auto d-none d-sm-block custom-font flex-row'>
+        <Nav.Item>
+          <Nav.Link as={NavLink} to='/iscrizioneAssociazione'>
+            Iscriviti ad OPERA
+          </Nav.Link>
+        </Nav.Item>
       </Nav>
 
       <Nav className='mr-auto ml-md-auto d-none d-sm-block'>
         <Nav.Link as={NavLink} exact to='/'>
-        <img src={logo} className='custom-logo' alt='logo' height='10px' width='120px' />
+          <img src={logo} className='custom-logo' alt='logo' height='10px' width='120px' />
         </Nav.Link>
       </Nav>
 
       <Nav className='ml-md-auto d-sm-none'>
         <Nav.Link as={NavLink} exact to='/'>
-        <img src={logo} className='custom-logo-sm' alt='logo' height='10px' width='80px' />
+          <img src={logo} className='custom-logo-sm' alt='logo' height='10px' width='80px' />
         </Nav.Link>
       </Nav>
-      
+
       <Nav className='ml-md-auto d-none d-sm-block custom-font'>
         <Nav.Link as={NavLink} to='/iscrizioneTorneo'>
           Iscriviti al TORNEO

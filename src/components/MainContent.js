@@ -19,6 +19,18 @@ const MainContent = (props) => {
           ✍🏼
         </span>{' '}
       </Link>
+
+      <Link to='/rinnovoIscrizioneAssociazione' className='App-link '>
+        {' '}
+        <span role='img' aria-label=''>
+          🔏
+        </span>{' '}
+        Rinnova la tua Iscrizione{' '}
+        <span role='img' aria-label=''>
+          🔏
+        </span>{' '}
+      </Link>
+
       <Link to='/iscrizioneTorneo' className='App-link mt-4'>
         {' '}
         <span role='img' aria-label=''>

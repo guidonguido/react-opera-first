@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import IscrizionePage from './components/IscrizionePage';
+import RinnovoIscrizionePage from './components/RinnovoIscrizionePage';
 import IscrizioneTorneoPage from './components/IscrizioneTorneoPage';
 import SuccessAlert from './components/SuccessAlert';
 import ErrorAlert from './components/ErrorAlert';
@@ -60,6 +61,8 @@ function App() {
       // TO-DO firebase.auth().signOut() 
       logoutUser();
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const showSidebar = () => {
@@ -166,6 +169,17 @@ function App() {
         <Route path='/iscrizioneAssociazione'>
           <div className='below-nav'>
             <IscrizionePage
+              handleSubmitSuccess={handleSubmitSuccess}
+              handleSubmitError={handleSubmitError}
+              loading={handleLoading}
+            />{' '}
+          </div>
+          <Footer position='sticky' />
+        </Route>
+
+        <Route path='/rinnovoIscrizioneAssociazione'>
+          <div className='below-nav'>
+          <RinnovoIscrizionePage
               handleSubmitSuccess={handleSubmitSuccess}
               handleSubmitError={handleSubmitError}
               loading={handleLoading}
