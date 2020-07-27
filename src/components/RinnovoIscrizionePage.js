@@ -149,8 +149,8 @@ const IscrizioneForm = (props) => {
             <Form.Label>
               {' '}
               <p className='mb-1 font-weight-bold'>Foto del documento di identità rinnovato</p>
-              <p className='mb-0'>Lascia libero il documento della scorsa </p>
-              <p>iscrizione è ancora valido</p>
+              <p className='mb-0'>Lascia libero il campo se il documento della  </p>
+              <p>scorsa iscrizione è ancora valido</p>
             </Form.Label>
             <DropzoneArea
               acceptedFiles={['image/jpeg', 'image/png', 'image/bmp, .pdf']}
