@@ -38,7 +38,7 @@ const Footer = (props) => {
             <a href='https://www.instagram.com/opera_aps/' target="_blank"  rel="noopener noreferrer">
               <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faInstagram} size='2x' />
             </a>
-            <a href='https://wa.me/+39 3495513563' target="_blank"  rel="noopener noreferrer">
+            <a href='https://wa.me/393495513563' target="_blank"  rel="noopener noreferrer">
               <FontAwesomeIcon style={{ marginRight: '10px' }} icon={faWhatsapp} size='2x' />
             </a>
             <a href='mailto:operaaps@outlook.it' target="_blank"  rel="noopener noreferrer">
