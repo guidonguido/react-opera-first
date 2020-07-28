@@ -29,7 +29,7 @@ const RinnovoIscrizionePage = (props) => {
             .then(() => {
               setTimeout(() => {
                 console.log(values);
-                props.handleSubmitSuccess(values, 'associazione');
+                props.handleSubmitSuccess(values, true);
                 setSubmitted(true);
               }, 2000);
             })
@@ -41,7 +41,7 @@ const RinnovoIscrizionePage = (props) => {
         } else {
           setTimeout(() => {
             console.log(values);
-            props.handleSubmitSuccess(values, 'associazione');
+            props.handleSubmitSuccess(values, true);
             setSubmitted(true);
           }, 2000);
         }

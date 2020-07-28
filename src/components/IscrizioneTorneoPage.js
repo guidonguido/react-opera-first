@@ -25,7 +25,7 @@ const IscrizioneTorneoPage = (props) => {
       .then(() => {
         setTimeout(() => {
           console.log(values);
-          props.handleSubmitSuccess(values, 'torneo');
+          props.handleSubmitSuccess(values, false);
           setSubmitted(true);
         }, 2000);
       })

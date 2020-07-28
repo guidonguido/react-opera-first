@@ -86,14 +86,14 @@ function App() {
     setSubmitSuccess(false);
   };
 
-  const handleSubmitSuccess = (values, type) => {
+  const handleSubmitSuccess = (values, addScadenzaIscrizione) => {
     window.scrollTo(0, 0);
     if (values) {
       setSubmitSuccess(true);
       setSubmitError(false);
       setLoginError(false);
       setSubmitValues(values);
-      setScadenzaPagamento(moment().add('days', 30).format('DD-MM-YYYY'));
+      addScadenzaIscrizione && setScadenzaPagamento(moment().add('days', 30).format('DD-MM-YYYY'));
 
       setLoading(false);
 
