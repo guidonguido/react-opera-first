@@ -14,15 +14,16 @@ function SuccessAlert(props) {
           contattato da un responsabile OPERA per confermare l'esito della tua iscrizione.
         </p>
 
-        {props.scadenzaPagamento && <p>
-          Ricorda che l'iscrizione sarà finalizzata solo a seguito del pagamento della quota di Iscrizione di 15€ (come da
-          <a
-            href='https://firebasestorage.googleapis.com/v0/b/guido-opera-first.appspot.com/o/Trattamento%20dati%2FREGOLAMENTO%20INTERNO%20ASSOCIAZIONE%2011-07.pdf?alt=media&token=07891542-d761-45d9-af7a-c6db1ae99775'
-            target='_blank'
-            rel='noopener noreferrer'>
-          </a>
-          ). Il pagamento dovrà essere effettuato entro e non oltre il {props.scadenzaPagamento}
-        </p>}
+        {props.scadenzaPagamento && (
+          <p>
+            Ricorda che l'iscrizione sarà finalizzata solo a seguito del pagamento della quota di Iscrizione di 15€ (come da <a
+              href='https://firebasestorage.googleapis.com/v0/b/guido-opera-first.appspot.com/o/Trattamento%20dati%2FREGOLAMENTO%20INTERNO%20ASSOCIAZIONE%2011-07.pdf?alt=media&token=07891542-d761-45d9-af7a-c6db1ae99775'
+              target='_blank'
+              rel='noopener noreferrer'> Regolamento{' '}
+            </a>
+            ). Il pagamento dovrà essere effettuato entro e non oltre il {props.scadenzaPagamento}.
+          </p>
+        )}
 
         {props.inviaDocumento ? (
           <p>

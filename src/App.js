@@ -26,6 +26,7 @@ function App() {
   const [submitError, setSubmitError] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitValues, setSubmitValues] = useState(null);
+  const [scadenzaPagamento, setScadenzaPagamento] = useState(null);
   const [user, setUser] = useState(null);
   const [loginError, setLoginError] = useState(null);
 
@@ -92,6 +93,8 @@ function App() {
       setSubmitError(false);
       setLoginError(false);
       setSubmitValues(values);
+      setScadenzaPagamento(moment().add('days', 30).format('DD-MM-YYYY'));
+
       setLoading(false);
 
       console.log(values);
@@ -123,6 +126,7 @@ function App() {
               show={submitSuccess}
               nome={submitValues.nome}
               cognome={submitValues.cognome}
+              scadenzaPagamento={scadenzaPagamento || false}
               inviaDocumento={submitValues.files && submitValues.files.length === 0}
               minorenne={submitValues.dataNascita && moment().diff(moment(submitValues.dataNascita), 'years') < 18}
               hideAlert={handleSuccessClose}
