@@ -89,6 +89,7 @@ const IscrizioneForm = (props) => {
         'Codice fiscale non valido',
       ),
     captcha: Yup.string().required('Campo obbligatorio'),
+    termini: Yup.bool().oneOf([true], "È richiesta l'Accettazione del Regolamento")
   });
 
   return (
@@ -99,6 +100,7 @@ const IscrizioneForm = (props) => {
         cognome: '',
         cf: '',
         captcha: '',
+        termini: false,
       }}
       onSubmit={(values) => {
         props.submitForm(values);
@@ -149,7 +151,7 @@ const IscrizioneForm = (props) => {
             <Form.Label>
               {' '}
               <p className='mb-1 font-weight-bold'>Foto del documento di identità rinnovato</p>
-              <p className='mb-0'>Lascia libero il campo se il documento della  </p>
+              <p className='mb-0'>Lascia libero il campo se il documento della </p>
               <p>scorsa iscrizione è ancora valido</p>
             </Form.Label>
             <DropzoneArea
@@ -163,6 +165,19 @@ const IscrizioneForm = (props) => {
                 setFieldValue('files', acceptedFiles);
               }}
             />
+          </Form.Row>
+
+          <Form.Row >
+            <Form.Group className='ml-md-auto mr-auto mt-5'>
+            <Form.Check
+              type='switch'
+              name="termini"
+              onChange={handleChange}
+              isInvalid={touched.termini && errors.termini}
+              feedback={errors.termini}
+              id="validationFormik106"
+              label={<div>Acconsento alla <a href='https://firebasestorage.googleapis.com/v0/b/guido-opera-first.appspot.com/o/Trattamento%20dati%2FREGOLAMENTO%20INTERNO%20ASSOCIAZIONE%2011-07.pdf?alt=media&token=07891542-d761-45d9-af7a-c6db1ae99775' target="_blank"  rel="noopener noreferrer"> Informativa sulla privacy </a> e <a href='https://firebasestorage.googleapis.com/v0/b/guido-opera-first.appspot.com/o/Trattamento%20dati%2FREGOLAMENTO%20INTERNO%20ASSOCIAZIONE%2011-07.pdf?alt=media&token=07891542-d761-45d9-af7a-c6db1ae99775' target="_blank"  rel="noopener noreferrer"> Regolamento </a></div>}
+            /></Form.Group>
           </Form.Row>
 
           <Form.Row>

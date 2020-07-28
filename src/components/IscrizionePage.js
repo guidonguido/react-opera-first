@@ -92,7 +92,8 @@ const IscrizioneForm = (props) => {
     provinciaResidenza: Yup.string().required('Campo obbligatorio').max(15, 'Che provincia lunga'),
     indirizzo: Yup.string().required('Campo obbligatorio').max(25, 'Indirizzo troppo lungo'),
     civico: Yup.string().required('Campo obbligatorio'),
-    captcha: Yup.string().required('Campo obbligatorio')
+    captcha: Yup.string().required('Campo obbligatorio'),
+    termini: Yup.bool().oneOf([true], "È richiesta l'Accettazione del Regolamento")
   });
 
   return (
@@ -113,7 +114,8 @@ const IscrizioneForm = (props) => {
         via: 'Via',
         indirizzo: '',
         civico: '',
-        captcha:''
+        captcha:'',
+        termini: false,
       }}
       onSubmit={(values) => {
         props.submitForm(values);
@@ -298,7 +300,7 @@ const IscrizioneForm = (props) => {
             <Form.Control.Feedback type='invalid'>{errors.email}</Form.Control.Feedback>
           </Form.Row>
 
-          <Form.Row className='text-left'>
+          <Form.Row className='text-left mb-5'>
             <Form.Label>
               {' '}
               <p className='mb-1 font-weight-bold'>Foto del documento di identità</p>
@@ -316,6 +318,19 @@ const IscrizioneForm = (props) => {
                 setFieldValue('files', acceptedFiles);
               }}
             />
+          </Form.Row>
+
+          <Form.Row >
+            <Form.Group className='ml-md-auto mr-auto'>
+            <Form.Check
+              type='switch'
+              name="termini"
+              onChange={handleChange}
+              isInvalid={touched.termini && errors.termini}
+              feedback={errors.termini}
+              id="validationFormik106"
+              label={<div>Acconsento alla <a href='https://firebasestorage.googleapis.com/v0/b/guido-opera-first.appspot.com/o/Trattamento%20dati%2FREGOLAMENTO%20INTERNO%20ASSOCIAZIONE%2011-07.pdf?alt=media&token=07891542-d761-45d9-af7a-c6db1ae99775' target="_blank"  rel="noopener noreferrer"> Informativa sulla privacy </a> e <a href='https://firebasestorage.googleapis.com/v0/b/guido-opera-first.appspot.com/o/Trattamento%20dati%2FREGOLAMENTO%20INTERNO%20ASSOCIAZIONE%2011-07.pdf?alt=media&token=07891542-d761-45d9-af7a-c6db1ae99775' target="_blank"  rel="noopener noreferrer"> Regolamento </a></div>}
+            /></Form.Group>
           </Form.Row>
 
           <Form.Row>
