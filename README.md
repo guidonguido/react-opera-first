@@ -37,6 +37,26 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Deploy on firebase
+Make sure to have an existing firebase project already setted up.
+
+1. ### `npm run build`
+Inside the `build/static` directory will be your JavaScript and CSS files.
+
+2. ### `npm install -g firebase-tools`
+Install firebse CLI 
+
+3. ### `firebase login`
+Login to Firebase from the *root directory* of the React app
+
+4. ### `firebase init`
+Initiate firebase in your react app.
+
+- Hosting > Use an existing project > select your project > build as public directory > choose if you want a single-page app > No overwrite
+
+5. ### `firebase deploy` 
+Firebase will run the deploy process and will give you a unique URL where the app is deployed.
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
