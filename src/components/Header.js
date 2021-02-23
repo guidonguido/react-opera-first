@@ -23,23 +23,31 @@ const Header = (props) => {
         </Nav.Item>
       </Nav>
 
-      <Nav className='mr-auto ml-md-auto d-none d-sm-block'>
+      {/*Add Nav className mr-auto to center three elements*/}
+      <Nav className='ml-md-auto d-none d-sm-block'>
         <Nav.Link as={NavLink} exact to='/'>
           <img src={logo} className='custom-logo' alt='logo' height='10px' width='120px' />
         </Nav.Link>
       </Nav>
 
-      <Nav className='ml-md-auto d-sm-none'>
+      
+      {/*Add Nav className ml-md-auto to center three elements
+         Remove mr-0 also*/}
+      <Nav className='mr-0 d-sm-none'>
         <Nav.Link as={NavLink} exact to='/'>
           <img src={logo} className='custom-logo-sm' alt='logo' height='10px' width='80px' />
         </Nav.Link>
       </Nav>
 
+     {/* Commented Because Route to iscrizioneTorneo not needed
+         Momentarily disable iscrizioneTorneo
       <Nav className='ml-md-auto d-none d-sm-block custom-font'>
         <Nav.Link as={NavLink} to='/iscrizioneTorneo'>
           Iscriviti al TORNEO
         </Nav.Link>
-      </Nav>
+     </Nav>
+     */}
+
     </Navbar>
   );
 };
