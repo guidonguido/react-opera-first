@@ -27,7 +27,7 @@ const Footer = (props) => {
             INDIRIZZO
           </Row>
           <Row style={{ marginLeft: '-10px' }} className='custom-font-p'>
-            Da qualche parte a Cerzeto
+            Via Ringhiera 17, Cerzeto (CS)
           </Row>
         </Nav>
         <Nav className='mr-auto ml-auto d-sm-block mb-4 mb-sm-0' style={{ marginTop: '-20px' }}>
@@ -52,7 +52,7 @@ const Footer = (props) => {
             ASSOCIAZIONE
           </Row>
           <Row style={{ marginLeft: '-10px' }} className='custom-font-p'>
-            Breve info
+            Associazione Promozione Sociale
           </Row>
         </Nav>
       </Navbar>

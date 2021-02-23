@@ -191,7 +191,8 @@ function App() {
           </div>
           <Footer position='sticky' />
         </Route>
-
+        
+        {/* Momentarily disable iscrizioneTorneo
         <Route path='/iscrizioneTorneo'>
           <div className='below-nav'>
             <IscrizioneTorneoPage
@@ -202,6 +203,7 @@ function App() {
           </div>
           <Footer position='sticky' />
         </Route>
+        */}
 
         <Route>
           <MainContent openMobileMenu={openMobileMenu} />

@@ -27,11 +27,13 @@ const Sidebar = (props) => {
           </Nav.Link>
         </ListGroup.Item>
 
+        {/* Momentarily disable iscrizioneTorneo
         <ListGroup.Item className='custom-sidebar' onClick={props.showSidebar}>
           <Nav.Link style={{ textDecoration: 'none', color: 'white' }} as={NavLink} to='/iscrizioneTorneo'>
             Iscriviti al TORNEO
           </Nav.Link>
         </ListGroup.Item>
+          */}
 
       </ListGroup>
     </div>
