@@ -7,7 +7,8 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import IscrizionePage from './components/IscrizionePage';
 import RinnovoIscrizionePage from './components/RinnovoIscrizionePage';
-import IscrizioneTorneoPage from './components/IscrizioneTorneoPage';
+// Momentarily disable iscrizioneTorneo 
+// import IscrizioneTorneoPage from './components/IscrizioneTorneoPage';
 import SuccessAlert from './components/SuccessAlert';
 import ErrorAlert from './components/ErrorAlert';
 
